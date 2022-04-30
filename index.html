@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knapsack Calculator</title>
+
+
+
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
+
+    <!-- Then include bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style> 
+    body {
+
+margin: 8px;
+font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif';
+}
+
+.resultContainer {
+margin-top: 38px;
+
+}
+
+.generateTable {
+margin-top: 16px;
+}
+
+.input-group {
+margin-top: 8px;
+}
+
+#table {
+margin-top: 16px;
+}
+
+h1 {
+font-weight: bolder;
+color: rgb(252, 246, 253);
+}
+
+h4 {
+margin-top: 48px;
+color: rgb(245, 234, 234);
+}
+
+h2 {
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 38px;
+font-weight: bolder;
+color: rgb(249, 243, 248);
+}
+
+.result {
+margin-top: 12px;
+visibility: hidden;
+background-color: rgb(0, 0, 0);
+/* Fallback color */
+background-color: rgba(0, 0, 0, 0.6);
+/* Black w/opacity/see-through */
+color: white;
+font-weight: bold;
+border: 3px solid #f1f1f1;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 2;
+width: 80%;
+padding: 20px;
+text-align: center;
+
+}
+
+#knapsackTable {
+font-weight: bold;
+color: rgb(248, 246, 249);
+} </style>
+
+</head>
+
+<body style="
+    background-image: url('https://thumbs.gfycat.com/CarelessTenseJunco-max-1mb.gif');
+    background-size: cover;">
+
+
+
+    <div class="text-center page-header">
+        <h1 style="color:rgb(253, 255, 255);">Knapsack Calculator</h1>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </div>
+                    <input class="form-control" id="capacity" type="number" placeholder="Enter Knapsack Capacity">
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </div>
+                    <input class="form-control" id="rows" type="number" placeholder="Enter number of Items" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center">
+            <button  type="button" class="generateTable btn btn-primary" onclick="createTable();">Enter Values</button>
+        </div>
+
+
+        <div class="table" id="wrapper"></div>
+
+        <div class="text-center">
+            <button type="button" class="generateResult btn btn-success" onclick="generateResult();">Calculate</button>
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <div class="container text-center">
+
+        <div class="result">
+
+            <div class="resultContainer col-md-6" >
+
+                <h1 style="color:rgb(253, 255, 255);">Knapsack</h1>
+                <h4 style="color:rgb(253, 255, 255);">Resultant Profit</h4>
+                <h2 id="kpResultantProfit"></h2>
+                <h4 style="color:rgb(253, 255, 255);">Profit / Weight</h4>
+                <h2 id="kpProfitWeight"></h2>
+                <h4 style="color:rgb(253, 255, 255);">Profit</h4>
+                <h2 id="kpProfit"></h2>
+                <h4 style="color:rgb(253, 255, 255);">Weight</h4>
+                <h2 id="kpWeight"></h2>
+                <h4 style="color:rgb(253, 255, 255);">Resultant Solution</h4>
+                <h2 id="kpResultantSolution"></h2>
+            </div>
+
+
+            <div class="resultContainer col-md-6">
+
+                <h1 style="color:rgb(253, 255, 255);">Knapsack 0-1</h1>
+                <h4 style="color:rgb(253, 255, 255);">Resultant Table</h4>
+                <div id="knapsackTable"></div>
+                <h4 style="color:rgb(253, 255, 255);">Resultant Profit</h4>
+                <h2 id="kp01ResultantProfit"></h2>
+                <h4 style="color:rgb(253, 255, 255);">Profit</h4>
+                <h2 id="kp01Profit"></h2>
+                <h4 style="color:rgb(253, 255, 255);">Weight</h4>
+                <h2 id="kp01Weight"></h2>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
+
