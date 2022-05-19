@@ -107,12 +107,6 @@ function sortLists() {
     }
 }
 
-// 9    4   4   2.5     2.5     2   0.625       >profit/weight
-// 18   20  12  25      10      22  5           >profit
-// 2    5   3   10      4       11  8           >weight
-// 23
-
-// 20, 25, 10, 12, 5, 22, 1 
 
 // applying knapsack algorithm
 function knapsackAlgorithm() {
